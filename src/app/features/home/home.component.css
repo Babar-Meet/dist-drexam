@@ -66,14 +66,14 @@
 .btn-store {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   background: #0A0A0A;
   color: #FAFAFA;
   border: 2px solid #0A0A0A;
   border-radius: 0;
-  padding: 10px 20px;
+  padding: 10px 24px;
   font-family: 'Work Sans', sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
