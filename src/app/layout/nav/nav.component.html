@@ -1,0 +1,19 @@
+<nav>
+  <div class="nav-container">
+    <div class="nav-left">
+      <a routerLink="/" class="logo">Dr.Exam</a>
+    </div>
+    <button class="hamburger" (click)="toggleMenu()" [class.open]="menuOpen" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-overlay" [class.open]="menuOpen" (click)="closeMenu()">
+      <ul class="nav-links" (click)="$event.stopPropagation()">
+        <li><a routerLink="/" (click)="closeMenu()" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+        <li><a routerLink="/privacy-policy" (click)="closeMenu()" routerLinkActive="active">Privacy Policy</a></li>
+        <li><a routerLink="/terms-conditions" (click)="closeMenu()" routerLinkActive="active">Terms &amp; Conditions</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
