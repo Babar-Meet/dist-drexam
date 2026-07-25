@@ -7,46 +7,47 @@
     <div class="legal-content">
 
       <h2>1. Our Belief</h2>
-      <p>We believe everyone deserves 100% privacy. Dr.Exam is designed to collect only the information necessary to provide the Service while keeping your data as secure as reasonably possible. No tracking, no profiling, no data mining. Your data stays yours.</p>
+      <p>Dr.Exam is designed with a local-first, privacy-respecting philosophy. All processing happens on your device. No tracking, no profiling, no data mining, and no cloud uploads. Your data stays yours.</p>
 
-      <h2>2. What We Collect</h2>
-      <p>Only the minimum information necessary for the Service to function. The app does not use analytics, crash reporting, or tracking technologies unless explicitly stated in this Privacy Policy.</p>
+      <h2>2. What We Access &amp; Store</h2>
+      <p>Dr.Exam accesses the following system resources strictly for real-time proctoring. Everything stays local:</p>
       <ul>
-        <li><strong>Camera Feed (Your Device):</strong> Dr.Exam accesses your camera for face detection and gaze tracking during proctored exams. All video processing happens locally on your device. No video or image data is uploaded to any server unless you explicitly choose to export logs.</li>
-        <li><strong>Screen Capture (Your Device):</strong> Screen recordings are captured and stored locally during proctored sessions. These recordings remain on your device and are never transmitted automatically.</li>
-        <li><strong>Proctoring Logs:</strong> Timestamped logs of detections, absences, and alerts are stored locally. These can be exported manually for review.</li>
+        <li><strong>Camera Feed (On-Device):</strong> Accessed for face detection via MediaPipe Face Landmarker, head pose estimation, and gaze tracking. Video frames are processed in memory and never transmitted. Snapshot images may be saved locally when configurable thresholds are breached.</li>
+        <li><strong>Screen Capture (On-Device):</strong> Periodic screenshots are captured via the mss library for scene-change detection using perceptual hashing (pHash). These captures are compared locally and only snapshots of significant changes are stored to disk.</li>
+        <li><strong>Foreground Window &amp; Browser URL:</strong> The active window title and foreground process name are polled to determine focus state. When a browser is focused, the active URL may be extracted via UIA or DevTools Protocol for domain/path allow-list checking. No browsing history is collected.</li>
+        <li><strong>Proctoring Evidence Logs:</strong> CSV files containing timestamps, violation types, focus state transitions, and snapshot references are saved locally in the <code>evidence/</code> directory. These logs are never transmitted automatically.</li>
+        <li><strong>Object Detection (On-Device):</strong> YOLOv8 runs locally to detect prohibited items (phones, laptops) in the camera frame. No images are sent to any external service.</li>
       </ul>
 
-      <h2>3. Third-Party Services</h2>
-      <p>Dr.Exam does not integrate any third-party analytics, advertising, or tracking services. The application is fully self-contained.</p>
+      <h2>3. No Third-Party Services</h2>
+      <p>Dr.Exam does not integrate any third-party analytics, telemetry, crash reporting, advertising, or tracking services. The application is fully self-contained with no external network calls for its core functionality.</p>
 
       <h2>4. Data Storage</h2>
       <ul>
-        <li><strong>Local:</strong> All proctoring data, recordings, and logs are stored locally on your device. You have full control. Clear app data or uninstall to remove everything.</li>
-        <li><strong>No Cloud:</strong> Dr.Exam currently does not offer cloud storage or cloud sync. All data remains on your machine.</li>
+        <li><strong>Local Only:</strong> All evidence logs, snapshots, and configuration are written to the local filesystem under the <code>evidence/</code> and <code>exports/</code> directories relative to the application data folder. You have full control over these files.</li>
+        <li><strong>No Cloud Sync:</strong> Dr.Exam does not offer cloud storage, cloud sync, or remote backup. No data leaves your machine unless you manually copy it.</li>
+        <li><strong>Uninstall:</strong> Deleting the application and its data directory removes all stored information from your device.</li>
       </ul>
 
       <h2>5. Data Security</h2>
-      <p>We take security seriously. All processing is done on-device, minimizing exposure. While no service can guarantee absolute security, keeping data local is the strongest privacy posture available.</p>
+      <p>Because all sensitive processing (face data, screen content, URL information) happens on-device, the attack surface is minimized. The application runs with the permissions granted by the user. No server-side infrastructure exists that could be compromised to expose your data.</p>
 
       <h2>6. Your Control</h2>
       <ul>
-        <li><strong>Camera & Screen Access:</strong> You can revoke permissions at any time through Windows settings.</li>
-        <li><strong>Local Data:</strong> Clear app data or uninstall to remove everything from your device immediately.</li>
-        <li><strong>Export Logs:</strong> Proctoring logs can be exported manually. You decide what leaves your device.</li>
+        <li><strong>Camera &amp; Screen Permissions:</strong> You can revoke camera and screen access at any time through Windows Privacy Settings.</li>
+        <li><strong>Local Data:</strong> Navigate to the application data folder and delete the <code>evidence/</code> directory to remove all logs and snapshots immediately.</li>
+        <li><strong>Manual Export:</strong> Evidence logs can be exported manually for institutional review. You decide what leaves your device and when.</li>
+        <li><strong>Configuration:</strong> All proctoring thresholds and allow-lists are configurable via local files. No configuration data is transmitted.</li>
       </ul>
 
-      <h2>7. Policy Changes</h2>
-      <p>We may update this policy at any time. Changes take effect when posted. Continued use after changes constitutes acceptance.</p>
+      <h2>7. Children's Privacy</h2>
+      <p>Dr.Exam is not directed at children under the age of 13. The developer does not knowingly collect any information from children. If you believe a child has provided personal data, contact the developer to arrange deletion.</p>
 
-      <h2>8. Disclaimer of Warranties</h2>
-      <p>The Service is provided "as is" and "as available," without any warranty of any kind, express or implied. We do not guarantee that the Service will be uninterrupted, secure, or error-free.</p>
+      <h2>8. Policy Changes</h2>
+      <p>This policy may be updated at any time. Changes take effect when posted. Continued use of the Software after changes constitutes acceptance of the updated policy.</p>
 
-      <h2>9. Limitation of Liability</h2>
-      <p>To the fullest extent permitted by applicable law, we shall not be liable for any direct or indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of the Service.</p>
-
-      <h2>10. Contact</h2>
-      <p>This policy is administered by the app operator. We may not be able to respond to every inquiry, but we will try to review all legitimate requests.</p>
+      <h2>9. Contact</h2>
+      <p>Developer: <strong>Babariya Meet</strong> (GitHub: Babar-Meet).<br>For privacy-related inquiries, open an issue on the official GitHub repository.</p>
 
       <hr>
 
